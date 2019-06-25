@@ -1,7 +1,6 @@
 #
 #           ESP Smart Home Plugin for Domoticz
 #           Version 0.1.0
-
 #
 #
 
@@ -66,17 +65,7 @@ class BasePlugin:
             return
 
         self.loadConfig()
-        #if not self.discover(Parameters['Mode1']): return
-
-        if self.UNIT_LAMP not in Devices:
-            Domoticz.Device(Name='Dimmer lamp',  Unit=self.UNIT_LAMP, Type=244, Subtype=73, Switchtype=7, Used=1).Create()
-
-        if ((Parameters['Mode2'] == 'Show') and (self.UNIT_SCENES not in Devices)):
-            Options = { "Scenes": "|||||", "LevelNames": "Off|Bright|TV|Daily|Midnight", "LevelOffHidden": "true", "SelectorStyle": "0" }
-            Domoticz.Device(Name="Scenes", Unit=self.UNIT_SCENES, Type=244, Subtype=62 , Switchtype=18, Options = Options, Used=1).Create()
-
-        if self.UNIT_TEMPERATURE not in Devices:
-            Domoticz.Device(Name="Temperature",  Unit=self.UNIT_TEMPERATURE, TypeName="Temperature", Used=1).Create()
+        if (self.hardware == 'ZCACD1'): self.createZCDimmer()
 
         self.nextTimeSync = 0
 
@@ -210,6 +199,21 @@ class BasePlugin:
 
             self.IP = config['IP']
             self.deviceID = config['DeviceID']
+            self.hardware = config['Hardware']
+
+        else: self.discover(Parameters['Mode1'])
+
+    def createZCDimmer(self):
+
+        if self.UNIT_LAMP not in Devices:
+            Domoticz.Device(Name='Dimmer lamp',  Unit=self.UNIT_LAMP, Type=244, Subtype=73, Switchtype=7, Used=1).Create()
+
+        if ((Parameters['Mode2'] == 'Show') and (self.UNIT_SCENES not in Devices)):
+            Options = { "Scenes": "|||||", "LevelNames": "Off|Bright|TV|Daily|Midnight", "LevelOffHidden": "true", "SelectorStyle": "0" }
+            Domoticz.Device(Name="Scenes", Unit=self.UNIT_SCENES, Type=244, Subtype=62 , Switchtype=18, Options = Options, Used=1).Create()
+
+        if self.UNIT_TEMPERATURE not in Devices:
+            Domoticz.Device(Name="Temperature",  Unit=self.UNIT_TEMPERATURE, TypeName="Temperature", Used=1).Create()
 
     def sendCommand(self, jsonCommand):
         try:
@@ -279,6 +283,7 @@ class BasePlugin:
                         config = {
                             "DeviceID": self.deviceID,
                             "IP": self.IP,
+                            "Hardware": self.hardware
                         }
 
                         config_Path = os.path.join(str(Parameters['HomeFolder']), self.hardware+str(Parameters["HardwareID"])+'.json')
