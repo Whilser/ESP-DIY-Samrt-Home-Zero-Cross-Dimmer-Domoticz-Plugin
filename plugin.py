@@ -168,7 +168,7 @@ class BasePlugin:
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="100", TimedOut = False)
 
         if Level == 20:
-            command = {"id": self.id, "method": "set_power", "power": 30 ,"state": "ON"}
+            command = {"id": self.id, "method": "set_power", "power": 35 ,"state": "ON"}
             reply = self.sendCommand(json.dumps(command))
             Domoticz.Log('Message: '+json.dumps(reply))
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="30", TimedOut = False)
@@ -180,7 +180,7 @@ class BasePlugin:
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="50", TimedOut = False)
 
         if Level == 40:
-            command = {"id": self.id, "method": "set_power", "power": 1 ,"state": "ON"}
+            command = {"id": self.id, "method": "set_power", "power": 20 ,"state": "ON"}
             reply = self.sendCommand(json.dumps(command))
             Domoticz.Log('Message: '+json.dumps(reply))
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="1", TimedOut = False)
