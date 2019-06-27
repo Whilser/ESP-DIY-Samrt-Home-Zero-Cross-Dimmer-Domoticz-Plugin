@@ -1,2 +1,2 @@
-# ESP-DYI-Samrt-Home
+# ESP-DIY-Samrt-Home
 DYI Smart Home based on Espressif Systems (ESP32, ESP8266) 
