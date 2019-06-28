@@ -3,7 +3,7 @@ DIY Smart Home based on Espressif Systems (ESP32, ESP8266) Domoticz plugin
 
 ## Flashing ESP8266 (NodeMCU)
 
-Use ![nodemcu-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher) to flashout firmware to ESP8266 (NodeMCU)
+Use ![nodemcu-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher/) to flashout firmware to ESP8266 (NodeMCU)
 
 ![NodeMCU-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher/blob/master/images/gui.png)
 
