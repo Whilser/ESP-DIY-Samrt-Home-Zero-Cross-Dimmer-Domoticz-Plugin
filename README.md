@@ -1,5 +1,9 @@
 # ESP DIY Samrt Home
-**Domoticz plugin** for **DIY Smart Home** based on Espressif Systems (ESP32, ESP8266) 
+**Domoticz plugin** for **DIY Smart Home** based on Espressif Systems (ESP32, ESP8266). **Note:** The plugin is under development. The plugin was tested with python 3.5.x and Domoticz 4.x installed on Raspberry Pi.
+
+**Currently supported:**
+
+- [x] DIY Smart Home AC dimmer 220V
 
 ## Flashing ESP8266 (NodeMCU)
 
