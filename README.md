@@ -1,5 +1,5 @@
 # ESP DIY Samrt Home
-**Domoticz plugin DIY Smart Home** based on Espressif Systems (ESP32, ESP8266) 
+**Domoticz plugin** for **DIY Smart Home** based on Espressif Systems (ESP32, ESP8266) 
 
 ## Flashing ESP8266 (NodeMCU)
 
