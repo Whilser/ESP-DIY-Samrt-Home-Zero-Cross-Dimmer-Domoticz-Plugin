@@ -21,7 +21,7 @@ The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright s
 
 ![connection diagram](https://github.com/Whilser/ESP-DIY-Samrt-Home/raw/master/images/ESPDIYSmartHome.png)
 
-SSH commands:
+**SSH commands:**
 
     {"id":1, "method":"set_power", "power":"50", "state":"ON"}
     {"id":1, "method":"set_power", "power":"50", "state":"OFF"}
