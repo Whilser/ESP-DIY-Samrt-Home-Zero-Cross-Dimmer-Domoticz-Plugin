@@ -11,6 +11,19 @@ Use [nodemcu-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher/) to fl
 
 ![NodeMCU-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher/blob/master/images/gui.png)
 
+
+## How to Install
+
+    cd domoticz/plugins
+    git clone https://github.com/Whilser/ESP-DIY-Samrt-Home.git ESPSmartHome
+    sudo service domoticz restart
+
+## How to update
+
+    cd domoticz/plugins/ESPSmartHome
+    git pull
+    sudo service domoticz restart
+
 ## Domoticz configuration
 
 To configure device just enter Device ID of your ESP Smart Home device. If you do not know the Device ID, just leave Device ID field defaulted 0, this will start discover for your ESP Smart Home devices. Go to the Domoticz log, it will display the found ESP Smart Home devices and the Device ID you need.
