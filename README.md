@@ -25,7 +25,7 @@ The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright s
 
 ![connection diagram](https://github.com/Whilser/ESP-DIY-Samrt-Home/raw/master/images/ESPDIYSmartHome.png)
 
-**SSH commands:**
+**Control through SSH commands:**
 
     {"id":1, "method":"set_power", "power":"50", "state":"ON"}
     {"id":1, "method":"set_power", "power":"50", "state":"OFF"}
@@ -36,3 +36,9 @@ The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright s
     {"id":1, "method":"get_temperature"}
     {"id":1, "method":"get_state"}
     {"id":1, "method":"update", "IP":"192.168.4.1", "url":"/update/firmware.bin"}
+    
+ ### Connecting the device to the Wi-Fi network
+ 
+In case of unsuccessful connection to the Wi-Fi network, the device creates an access point with an ip address 192.168.4.1. To send Wi-Fi network settings (SSID, PASSWORD) to the device, connect to the AP and send a command via SSH terminal:
+
+    echo '{"id":1, "method":"set_config", "SSID":"Wi-Fi SSID", "PASSWD": "PASSWORD"}' | nc -w1 <deviceIP> 2000
