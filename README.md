@@ -1,6 +1,20 @@
 # ESP DIY Samrt Home
 DIY Smart Home based on Espressif Systems (ESP32, ESP8266) Domoticz plugin
 
+## Flashing ESP8266 (NodeMCU)
+
+Use ![nodemcu-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher) to flashout firmware to ESP8266 (NodeMCU)
+
+![NodeMCU-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher/blob/master/images/gui.png)
+
+## Domoticz configuration
+
+![connection diagram](https://github.com/Whilser/ESP-DIY-Samrt-Home/raw/master/images/DomoticzConfig.png)
+
+The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright scene, **TV** is a light of 30% power, **Daily** is a half-dimmer switched on, **Midnight** is minimal lighting.
+
+![connection diagram](https://github.com/Whilser/ESP-DIY-Samrt-Home/raw/master/images/Units.png)
+
 ## Connection diagram for ESP Smart Home DIY AC dimmer
 
 ![connection diagram](https://github.com/Whilser/ESP-DIY-Samrt-Home/raw/master/images/ESPDIYSmartHome.png)
