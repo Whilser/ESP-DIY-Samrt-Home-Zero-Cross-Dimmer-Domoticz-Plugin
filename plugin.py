@@ -168,7 +168,7 @@ class BasePlugin:
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="100", TimedOut = False)
 
         if Level == 20:
-            command = {"id": self.id, "method": "set_power", "power": 35 ,"state": "ON"}
+            command = {"id": self.id, "method": "set_power", "power": 30 ,"state": "ON"}
             reply = self.sendCommand(json.dumps(command))
             Domoticz.Log('Message: '+json.dumps(reply))
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="30", TimedOut = False)
@@ -180,7 +180,7 @@ class BasePlugin:
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="50", TimedOut = False)
 
         if Level == 40:
-            command = {"id": self.id, "method": "set_power", "power": 20 ,"state": "ON"}
+            command = {"id": self.id, "method": "set_power", "power": 10 ,"state": "ON"}
             reply = self.sendCommand(json.dumps(command))
             Domoticz.Log('Message: '+json.dumps(reply))
             if (self.UNIT_LAMP in Devices): Devices[self.UNIT_LAMP].Update(nValue=1, sValue="1", TimedOut = False)
@@ -189,7 +189,7 @@ class BasePlugin:
             Devices[self.UNIT_SCENES].Update(nValue=1, sValue=str(Level))
 
     def loadConfig(self):
-        config_Path = os.path.join(str(Parameters['HomeFolder']), self.hardware+str(Parameters["HardwareID"])+'.json')
+        config_Path = os.path.join(str(Parameters['HomeFolder']), "ESPSmartHome_device"+str(Parameters["HardwareID"])+'.json')
 
         if os.path.isfile(config_Path):
             Domoticz.Debug('Loading config from '+config_Path)
@@ -230,7 +230,7 @@ class BasePlugin:
             return json.loads(data.decode())
 
         except Exception as e:
-            Domoticz.Log('Error send command to {0} with IP {1}. Device is not responding, check power/network connection. Errror: {2}'.format(Parameters['Name'], self.IP, e.__class__))
+            Domoticz.Error('Error send command to {0} with IP {1}. Device is not responding, check power/network connection. Errror: {2}'.format(Parameters['Name'], self.IP, e.__class__))
 
             for x in Devices:
                 if  Devices[x].TimedOut == False: Devices[x].Update(nValue=Devices[x].nValue, sValue=Devices[x].sValue, TimedOut = True)
@@ -245,7 +245,8 @@ class BasePlugin:
             Domoticz.Debug('Loaded saved configuration.')
             Domoticz.Log('Attempt to connect to {2} device with ID: {0}, IP address: {1} '.format(self.deviceID, self.IP, self.hardware))
 
-            if self.sendCommand(json.dumps({"id": self.id, "method": "get_state"})) == None:
+            status = self.sendCommand(json.dumps({"id": self.id, "method": "get_state"}))
+            if (status["state"] == "Error"):
                 Domoticz.Log('Could not connect to {0} with IP {1}, starting discover.'.format(Parameters['Name'], self.IP))
                 self.IP = ''
             else:
@@ -286,7 +287,7 @@ class BasePlugin:
                             "Hardware": self.hardware
                         }
 
-                        config_Path = os.path.join(str(Parameters['HomeFolder']), self.hardware+str(Parameters["HardwareID"])+'.json')
+                        config_Path = os.path.join(str(Parameters['HomeFolder']), "ESPSmartHome_device"+str(Parameters["HardwareID"])+'.json')
                         with open(config_Path, 'w') as outfile:
                             if json.dump(config, outfile, indent=4): Domoticz.Debug('Config file was saved.')
 
