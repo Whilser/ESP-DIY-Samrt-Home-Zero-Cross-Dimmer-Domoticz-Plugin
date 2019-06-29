@@ -48,7 +48,7 @@ The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright s
     {"id":1, "method":"set_mode", "mode":"TOGGLE_MODE"}
     {"id":1, "method":"get_temperature"}
     {"id":1, "method":"get_state"}
-    {"id":1, "method":"update", "IP":"192.168.4.1", "url":"/update/firmware.bin"}
+    {"id":1, "method":"update", "IP":"<Update Server IP>, "url":"/update/firmware.bin"}
     
  ### Connecting the device to the Wi-Fi network
  
