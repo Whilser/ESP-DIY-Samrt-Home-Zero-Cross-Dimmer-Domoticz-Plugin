@@ -12,13 +12,13 @@ Use [nodemcu-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher/) to fl
 ![NodeMCU-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher/blob/master/images/gui.png)
 
 
-## How to Install
+## How to Install:
 
     cd domoticz/plugins
     git clone https://github.com/Whilser/ESP-DIY-Samrt-Home.git ESPSmartHome
     sudo service domoticz restart
 
-## How to update
+## How to update:
 
     cd domoticz/plugins/ESPSmartHome
     git pull
@@ -54,4 +54,4 @@ The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright s
  
 In case of unsuccessful connection to the Wi-Fi network, the device creates an access point with an ip address 192.168.4.1. To send Wi-Fi network settings (SSID, PASSWORD) to the device, connect to the AP and send a command via SSH terminal:
 
-    echo '{"id":1, "method":"set_config", "SSID":"Wi-Fi SSID", "PASSWD": "PASSWORD"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"set_config", "SSID":"Wi-Fi SSID", "PASSWD": "PASSWORD"}' | nc -w1 192.168.4.1 2000
