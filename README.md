@@ -40,15 +40,15 @@ The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright s
 
 **Control through SSH commands:**
 
-    {"id":1, "method":"set_power", "power":"50", "state":"ON"}
-    {"id":1, "method":"set_power", "power":"50", "state":"OFF"}
-    {"id":1, "method":"set_state", "state":"OFF"}
-    {"id":1, "method":"set_state", "state":"ON"}
-    {"id":1, "method":"set_config", "SSID":"Wi-Fi SSID", "PASSWD": "PASSWORD"}
-    {"id":1, "method":"set_mode", "mode":"TOGGLE_MODE"}
-    {"id":1, "method":"get_temperature"}
-    {"id":1, "method":"get_state"}
-    {"id":1, "method":"update", "IP":"<Update Server IP>", "url":"/update/firmware.bin"}
+    echo '{"id":1, "method":"set_power", "power":"50", "state":"ON"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"set_power", "power":"50", "state":"OFF"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"set_state", "state":"OFF"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"set_state", "state":"ON"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"set_config", "SSID":"Wi-Fi SSID", "PASSWD": "PASSWORD"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"set_mode", "mode":"TOGGLE_MODE"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"get_temperature"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"get_state"}' | nc -w1 <deviceIP> 2000
+    echo '{"id":1, "method":"update", "IP":"<Update Server IP>", "url":"/update/firmware.bin"}' | nc -w1 <deviceIP> 2000
     
  ### Connecting the device to the Wi-Fi network
  
