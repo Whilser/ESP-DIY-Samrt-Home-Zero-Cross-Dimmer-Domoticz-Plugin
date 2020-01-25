@@ -55,3 +55,6 @@ The plugin creates a dimmer switch and a set of scenes. **Bright** is a bright s
 In case of unsuccessful connection to the Wi-Fi network, the device creates an access point with an ip address 192.168.4.1. To send Wi-Fi network settings (SSID, PASSWORD) to the device, connect to the AP and send a command via SSH terminal:
 
     echo '{"id":1, "method":"set_config", "SSID":"Wi-Fi SSID", "PASSWD": "PASSWORD"}' | nc -w1 192.168.4.1 2000
+
+If you liked it, buy me coffee! <br>
+<a href="https://www.buymeacoffee.com/K8oYBpO" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-orange.png" alt="If you liked it, buy me coffee!" style="height: 51px !important;width: 217px !important;" ></a>
