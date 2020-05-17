@@ -126,6 +126,7 @@ class BasePlugin:
         Domoticz.Debug("onHeartbeat called")
 
         if Parameters['Mode1'] == '0': return
+        if not self.discover(Parameters['Mode1']): return
 
         self.nextTimeSync -= 1
 
